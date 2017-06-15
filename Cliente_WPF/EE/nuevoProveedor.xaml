@@ -1,0 +1,28 @@
+﻿<Window x:Class="Cliente_WPF.EE.nuevoProveedor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cliente_WPF.EE"
+        mc:Ignorable="d"
+        Title="nuevoProveedor" Height="458.536" Width="444.715" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Grid HorizontalAlignment="Left" Width="292">
+        <Label Content="Nombre del Proveedor:" HorizontalAlignment="Left" Margin="10,28,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtProveedor" HorizontalAlignment="Left" Height="23" Margin="149,28,-72,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="215"/>
+        <Label x:Name="lblIdProveedor" Content="ID&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="378,27,-124,0"/>
+        <Label Content="Direccion:" HorizontalAlignment="Left" Margin="28,79,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtDireccion" TextAlignment="Justify" HorizontalAlignment="Left" Height="26" Margin="103,79,-90,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="279" BorderBrush="#89000000"/>
+        <Label Content="Telefono:" HorizontalAlignment="Left" Margin="28,136,0,0" VerticalAlignment="Top"/>
+        <TextBox TextAlignment="Justify" HorizontalAlignment="Left" Height="26" Margin="103,136,-90,0" TextWrapping="Wrap" x:Name="txtTelefono" VerticalAlignment="Top" Width="279" BorderBrush="#89000000"/>
+        <Label Content="Correo:" HorizontalAlignment="Left" Margin="28,195,0,0" VerticalAlignment="Top"/>
+        <TextBox TextAlignment="Justify" HorizontalAlignment="Left" Height="26" Margin="103,195,-90,0" TextWrapping="Wrap" x:Name="txtCorreo" VerticalAlignment="Top" Width="279" BorderBrush="#89000000"/>
+        <Label Content="NRC:" HorizontalAlignment="Left" Margin="28,249,0,0" VerticalAlignment="Top"/>
+        <TextBox TextAlignment="Justify" HorizontalAlignment="Left" Height="26" Margin="103,249,-90,0" TextWrapping="Wrap" x:Name="txtNit" VerticalAlignment="Top" Width="279" BorderBrush="#89000000"/>
+        <Label Content="NIT:" HorizontalAlignment="Left" Margin="28,312,0,0" VerticalAlignment="Top"/>
+        <TextBox TextAlignment="Justify" HorizontalAlignment="Left" Height="26" Margin="103,312,-90,0" TextWrapping="Wrap" x:Name="txtNrc" VerticalAlignment="Top" Width="279" BorderBrush="#89000000"/>
+        <Button Content="Guardar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="101" Margin="43,393,0,0" x:Name="btnGuardar" Click="btnGuardar_Click"/>
+        <Button Content="Eliminar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="101" Margin="181,393,0,0" x:Name="btnEliminar" Click="Button_Click" Background="#FFFF6969" BorderBrush="{x:Null}"/>
+        <Button Content="Cancelar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="101" Margin="317,393,-126,0" x:Name="btnCancelar" Click="btnCancelar_Click"/>
+
+    </Grid>
+</Window>

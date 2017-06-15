@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiCenter_Modelo", "ServiCenter_Modelo\ServiCenter_Modelo.csproj", "{4FE5001E-37F3-4A8F-9F9C-79DC2ADB2956}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ServiCenter_ServicioWeb", "ServiCenter_ServicioWeb\", "{973ADC58-9BA1-4A19-AE6D-32BEA4AE8203}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv3.5"
+		ProjectReferences = "{4fe5001e-37f3-4a8f-9f9c-79dc2adb2956}|ServiCenter_Modelo.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_58792"
+		Debug.AspNetCompiler.PhysicalPath = "ServiCenter_ServicioWeb\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_58792\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_58792"
+		Release.AspNetCompiler.PhysicalPath = "ServiCenter_ServicioWeb\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_58792\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "58792"
+		SlnRelativePath = "ServiCenter_ServicioWeb\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cliente_WPF", "Cliente_WPF\Cliente_WPF.csproj", "{78A7D73A-D936-4AC6-824B-96B218831DD5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{973ADC58-9BA1-4A19-AE6D-32BEA4AE8203} = {973ADC58-9BA1-4A19-AE6D-32BEA4AE8203}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4FE5001E-37F3-4A8F-9F9C-79DC2ADB2956}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FE5001E-37F3-4A8F-9F9C-79DC2ADB2956}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FE5001E-37F3-4A8F-9F9C-79DC2ADB2956}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FE5001E-37F3-4A8F-9F9C-79DC2ADB2956}.Release|Any CPU.Build.0 = Release|Any CPU
+		{973ADC58-9BA1-4A19-AE6D-32BEA4AE8203}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{973ADC58-9BA1-4A19-AE6D-32BEA4AE8203}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{973ADC58-9BA1-4A19-AE6D-32BEA4AE8203}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{973ADC58-9BA1-4A19-AE6D-32BEA4AE8203}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{78A7D73A-D936-4AC6-824B-96B218831DD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78A7D73A-D936-4AC6-824B-96B218831DD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78A7D73A-D936-4AC6-824B-96B218831DD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78A7D73A-D936-4AC6-824B-96B218831DD5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,45 @@
+﻿<Page x:Class="Cliente_WPF.EE.regProducto"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Cliente_WPF"
+      mc:Ignorable="d"
+      Title="regProductoxaml" Height="469.106" Width="1115.741">
+
+    <Grid>
+        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="62" Margin="139,10,0,0" Height="61" FontSize="48" Click="Button_Click">
+            <TextBlock Text="+" VerticalAlignment="Center" FontSize="48"/>
+        </Button>
+        <Label Content="Agregar nuevo Producto" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,76,0,0"/>
+        <ComboBox Text="Buscar por..." HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="24,107,0,0" Height="40">
+            <ComboBoxItem>ID</ComboBoxItem>
+            <ComboBoxItem>Nombre</ComboBoxItem>
+        </ComboBox>
+        <TextBox HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" Text="Criterio de busqueda..." VerticalAlignment="Top" Width="767" Margin="166,112,0,0" RenderTransformOrigin="0.5,0.5">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.083"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <DataGrid IsReadOnly="True" Cursor="Hand" MouseDoubleClick="dtgProductos_MouseDoubleClick" SelectionMode="Single" HorizontalAlignment="Left" Height="252" VerticalAlignment="Top" Width="910" Margin="24,174,0,0" AutomationProperties.Name="dtgProductos" AutoGenerateColumns="False" Name="dtgProductos" ToolTip="Lista de empleados">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="100" Header="ID Producto" Binding="{Binding Id_producto}" />
+                <DataGridTextColumn Width="250" Header="Nombre" Binding="{Binding Nombre}" />
+                <DataGridTextColumn Width="275" Header="Descripcion" Binding="{Binding Descripcion}"/>
+                <DataGridTextColumn Width="175" Header="Proveedor" Binding="{Binding NombreProveedor}"/>
+                <DataGridTextColumn Width="100" Header="Precio Costo" Binding="{Binding Precio_costo}"/>
+                <DataGridTextColumn Visibility="Hidden" Header="ID Proveedor" Binding="{Binding Id_proveedor}"/>
+                <DataGridTextColumn Visibility="Hidden" Header="Estado" Binding="{Binding Estado}"/>
+                <DataGridTextColumn Visibility="Hidden" Header="Fraccion" Binding="{Binding Fraccion}"/>
+                <DataGridTextColumn Visibility="Hidden" Header="Contenido" Binding="{Binding Contenido}"/>
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+    </Grid>
+</Page>

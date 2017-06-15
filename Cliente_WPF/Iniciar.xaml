@@ -1,0 +1,52 @@
+﻿<Window x:Class="Cliente_WPF.Iniciar"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cliente_WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="513.143" Width="535.433"
+        MinHeight="513.143" MinWidth="535.433"
+        MaxHeight="513.143" MaxWidth="535.433"
+        WindowStartupLocation="CenterScreen"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     FontFamily="{DynamicResource MaterialDesignFont}" WindowStyle="None">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF90C9F7" Offset="0.007"/>
+            <GradientStop Color="#FF3B81BB" Offset="0.917"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid x:Name="window" Margin="2,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="395*"/>
+            <ColumnDefinition Width="128*"/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle HorizontalAlignment="Left" Height="374" Margin="112,58,0,0" VerticalAlignment="Top" Width="305" Fill="#FF232323" RadiusX="10" Grid.ColumnSpan="2">
+            <Rectangle.Effect>
+                <DropShadowEffect Direction="300" Opacity="0.6"/>
+            </Rectangle.Effect>
+        </Rectangle>
+        <Label Content="Servi" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="4.45,3.312" Margin="212,101,0,0" FontFamily="Segoe UI" FontSize="18" FontWeight="Bold" Foreground="#FF90C9F7" Height="34" Width="53"/>
+        <Label Content="Center" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="5.826,4.735" Margin="254,103,0,0" FontSize="20" Foreground="#FFC0D1FF" Height="32" Width="74"/>
+        <TextBox TabIndex="0" GotFocus="txtUser_GotFocus"  Name="txtUser" HorizontalAlignment="Left" Height="34" Margin="174,164,0,0" TextWrapping="Wrap" Text="Usuario" VerticalAlignment="Top" Width="184" FontFamily="Segoe UI" Foreground="#DDFFFFFF" BorderBrush="#FF90C9F7"/>
+        <Button Name="btnIniciar" Content="INICIAR SESION" HorizontalAlignment="Left" VerticalAlignment="Top" Width="184" RenderTransformOrigin="1.109,1.446" Margin="174,335,0,0" Background="#FF0F0F0F" BorderBrush="#FF90C9F7" Click="btnIniciar_Click"/>
+        <Button Content="X" Name="btnCerrar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" RenderTransformOrigin="1.109,1.446" Margin="386,38,0,0" Background="#FF383737" BorderBrush="{x:Null}" Click="Button_Click" Height="39" Grid.ColumnSpan="2">
+            <Button.Effect>
+                <DropShadowEffect Opacity="0.5" Direction="200"/>
+            </Button.Effect>
+        </Button>
+        <TextBlock Margin="200,372,37,97"><Hyperlink FontSize="14"><Run Text="¿Problemas al iniciar?"/></Hyperlink></TextBlock>
+       
+        <PasswordBox TabIndex="1" Name="txtPassword" HorizontalAlignment="Left" VerticalAlignment="Top" Width="184" Margin="174,249,0,0" Height="39" Background="{x:Null}" BorderBrush="#FF90C9F7" Foreground="#DDFFFFFF" KeyUp="txtPassword_KeyUp"/>
+        <Label Content="Contraseña" HorizontalAlignment="Left" Margin="174,232,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF"/>
+    </Grid>
+
+
+</Window>

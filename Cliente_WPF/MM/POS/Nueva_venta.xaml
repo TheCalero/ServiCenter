@@ -1,0 +1,112 @@
+﻿<Window x:Class="Cliente_WPF.MM.POS.Nueva_venta"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+        xmlns:toolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cliente_WPF"
+        mc:Ignorable="d"
+        Title="Registrar Venta" Height="658.499" Width="889" MinWidth="544" MinHeight="599.999" ResizeMode="NoResize" Topmost="True" WindowStartupLocation="CenterScreen">
+    <Grid HorizontalAlignment="Right" Width="710" Height="629" VerticalAlignment="Bottom" Margin="0,0,4,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="539*"/>
+            <RowDefinition Height="90*"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="lblNumPedido" Content="" HorizontalAlignment="Left" Margin="56,69,0,0" VerticalAlignment="Top" ToolTip="Id del nuevo pedido" FontSize="16" Cursor="Arrow" Height="30" Width="10"/>
+        <ComboBox x:Name="cmbDescuento" Margin="445,150,0,0" Width="146" VerticalAlignment="Top" Cursor="Hand" ToolTip="Listar los descuentos disponibles" Height="36" HorizontalAlignment="Left" SelectionChanged="cmbDescuento_SelectionChanged"/>
+        <Label x:Name="lblCantidad" Content="Cantidad:" HorizontalAlignment="Left" Margin="34,216,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" FontSize="14" Height="28" Width="68"/>
+        <Label x:Name="lblProducto" Content="Producto:" HorizontalAlignment="Left" Margin="195,216,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.471,0.476" VerticalContentAlignment="Center" FontSize="14" Height="28" Width="70"/>
+        <TextBox x:Name="txtCantidad" Text="" KeyDown="txtCantidad_KeyDown" HorizontalAlignment="Left" Height="24" Margin="102,216,0,0" VerticalAlignment="Top" Width="49" VerticalContentAlignment="Bottom" FontSize="14" MaxLines="1" HorizontalContentAlignment="Center" Cursor="IBeam" TextWrapping="Wrap" TextChanged="txtCantidad_TextChanged"/>
+        <Button x:Name="btnAgregarP" Click="btnAgregarP_Click" Style="{DynamicResource MaterialDesignFloatingActionLightButton}" HorizontalAlignment="Right" Margin="0,208,34,0" Width="50" Height="44" FontSize="1" ToolTip="Agrear producto" FontWeight="Bold" Padding="16,4" TextOptions.TextHintingMode="Animated" Background="#FF03A9F4" BorderBrush="#FF03A9F4" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top" Foreground="#DDFBFBFB">
+            <Label x:Name="label1" Content="+" Height="34" Width="44" Foreground="#DDFFFFFF" Cursor="Hand" FontSize="27" RenderTransformOrigin="0,1" VerticalAlignment="Top" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Padding="0">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="1" ScaleX="1"/>
+                        <SkewTransform AngleY="0" AngleX="0"/>
+                        <RotateTransform Angle="0"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+        </Button>
+        
+        <DataGrid x:Name="dtgProductos" AutoGenerateColumns="False" CanUserReorderColumns="False" CanUserAddRows="True" Margin="10,272,10,0" VerticalAlignment="Top" Height="253" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" IsReadOnly="True" Binding="{Binding Path=Id_producto}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Proveedor" Width="90" IsReadOnly="True" Binding="{Binding Path=NombreProveedor}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Nombre" IsReadOnly="True" Binding="{Binding Path=Nombre}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Descripción" Width="88" IsReadOnly="True" Binding="{Binding Path=Descripcion}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Cantidad" IsReadOnly="False" Binding="{Binding Path=Cantidad}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Precio Unidad" IsReadOnly="True" Binding="{Binding Path=PrecioU}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Descuento" IsReadOnly="True" Binding="{Binding Path=Descuento}"></DataGridTextColumn>
+                <DataGridTextColumn Header="SubTotal" IsReadOnly="True" Binding="{Binding Path=SubT}"></DataGridTextColumn>
+                <DataGridTemplateColumn IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button FontSize="16" Padding="0" Style="{DynamicResource MaterialDesignToolButton}" Height="Auto" Foreground="#FFF01414">
+                                X
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btnGuardarventa" Click="btnGuardarventa_Click" Content="Guardar" Margin="270,23,277,0" VerticalAlignment="Top" Height="44" Background="#FF00E676" BorderBrush="#FF0B0C0B" FontSize="16" FontWeight="Bold" ToolTip="Guardar todo" Cursor="Hand" Grid.Row="1"/>
+        <Label x:Name="lblTprecios" Content="Precios para:" HorizontalAlignment="Left" Margin="30,150,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="90"/>
+        <Label x:Name="lblDescuento" Content="Descuento:" HorizontalAlignment="Left" Margin="362,150,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="78"/>
+        <ComboBox x:Name="cmbTiposClientes" SelectionChanged="cmbTiposClientes_SelectionChanged" HorizontalAlignment="Left" Margin="125,145,0,0" VerticalAlignment="Top" Width="146" RenderTransformOrigin="0.464,0.812" Cursor="Hand" IsEnabled="True" ToolTip="Según el tipo de cliente, puede haber distintos precios para un producto" Height="41" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" />
+        <Label x:Name="lblIdVenta" Content="ID Venta: XXX" HorizontalAlignment="Left" Margin="30,69,0,0" VerticalAlignment="Top" FontSize="15"/>
+        <toolkit:AutoCompleteBox x:Name="autoClientes" MaxDropDownHeight="300" ValueMemberPath="Nombre"
+                                 FilterMode="Contains" MinimumPrefixLength="1"  SelectedItem="{Binding Clienteseleccionado, Mode=TwoWay}" SelectionChanged="autoClientes_SelectionChanged" IsTextCompletionEnabled="True" Margin="90,104,277,407">
+            <toolkit:AutoCompleteBox.ItemTemplate >
+                <DataTemplate>
+                    <StackPanel  Orientation="Horizontal" ScrollViewer.VerticalScrollBarVisibility="Auto" MaxHeight="300">
+                        <Label x:Name="lblautonom" Content="{Binding Nombre}"  FontSize="11" ToolTip="Nombre del Cliente" Cursor="Hand" />
+                        <Label x:Name="lblautoape" Content="{Binding Apellido}"  FontSize="11" ToolTip="Apellido del Cliente" Cursor="Hand" />
+                        <Label x:Name="lblautoidC" Content="{Binding Id_cliente}" FontStyle="Italic" Foreground="DarkGray" FontSize="11" ToolTip="ID del cliente"/>
+                    </StackPanel>
+                </DataTemplate>
+            </toolkit:AutoCompleteBox.ItemTemplate>
+        </toolkit:AutoCompleteBox>
+
+        <Label x:Name="lblTprecios_Copy" Content="Cliente:" HorizontalAlignment="Left" Margin="30,104,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="68"/>
+        <Label x:Name="lblTprecios_Copy1" Content="ID Cliente:" HorizontalAlignment="Left" Margin="434,104,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="76"/>
+        <Label x:Name="lblIdCliente" Content="" HorizontalAlignment="Left" Margin="510,104,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="81"/>
+        <Label x:Name="lblTprecios_Copy3" Content="TOTAL:" HorizontalAlignment="Left" Margin="471,23,0,0" VerticalAlignment="Top" FontSize="16" Height="28" Width="62" Grid.Row="1" FontWeight="Bold"/>
+        <Label x:Name="lblTprecios_Copy4" Content="$:" Margin="538,23,18,23" FontSize="16" Grid.Row="1" FontWeight="Bold"/>
+        <Button x:Name="txtImprimir" Content="Imprimir" Margin="17,24,555,0" VerticalAlignment="Top" Height="44" Background="#FFCFCFCF" BorderBrush="#FF0B0C0B" FontSize="16" FontWeight="Bold" ToolTip="Guardar todo" Cursor="Hand" Grid.Row="1" IsEnabled="False"/>
+        <toolkit:AutoCompleteBox x:Name="autoPro" MaxDropDownHeight="300" ValueMemberPath="Nombre"
+                                 FilterMode="Contains" MinimumPrefixLength="1"  SelectedItem="{Binding productoseleccionado, Mode=TwoWay}" IsTextCompletionEnabled="True" Margin="270,216,105,295" SelectionChanged="autoPro_SelectionChanged">
+            <toolkit:AutoCompleteBox.ItemTemplate >
+                <DataTemplate>
+                    <StackPanel x:Name="stk"  Orientation="Horizontal" ScrollViewer.VerticalScrollBarVisibility="Auto" MaxHeight="300">
+                        <Label  x:Name="lblautonombre" Content="{Binding Nombre}" Width="100" FontSize="11" ToolTip="Nombre del producto" Cursor="Hand" />
+                        <Label x:Name="lblautoid" Content="{Binding Id_producto}" FontStyle="Italic" Foreground="DarkGray" FontSize="11" ToolTip="ID del producto"/>
+                    </StackPanel>
+                </DataTemplate>
+            </toolkit:AutoCompleteBox.ItemTemplate>
+        </toolkit:AutoCompleteBox>
+        <Label x:Name="lblb" Content="" HorizontalAlignment="Left" Margin="153,244,0,0" VerticalAlignment="Top" FontSize="10
+               " HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Width="112"/>
+        <Button x:Name="btnAgregarClientes" Click="btnAgregarClientes_Click" Style="{DynamicResource MaterialDesignToolButton}" HorizontalAlignment="Left" Margin="612,89,0,0" VerticalAlignment="Top" Width="60" Height="60" FontSize="11" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" ToolTip="Agregar nuevo cliente" BorderBrush="WhiteSmoke">
+            <Label x:Name="label2" Content="NUEVO" Foreground="#DD0055D1"/>
+        </Button>
+        <Expander Padding="5" x:Name="expDetalles" Header="Detalles" Margin="10,10,18,0" IsExpanded="False" ToolTip="ashjkl" ExpandDirection="Down" Height="242" VerticalAlignment="Top" Background="#FFFBFBFB" Expanded="expDetalles_Expanded" Collapsed="expDetalles_Collapsed" Cursor="Hand">
+            <materialDesign:Card Padding="32" Margin="10,0,10,0" VerticalAlignment="Top" Height="175">
+                <Grid Margin="0,0,0,0">
+                    <TextBox x:Name="txtSerie" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="336,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.383,3.978"/>
+                    <TextBox x:Name="txtCorrelativo" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="86,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <Label x:Name="label" Content="Serie" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,17,0,0"/>
+                    <Label x:Name="label_Copy" Content="Correlativo" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,13,0,0"/>
+                    <ComboBox x:Name="cmbDocumento" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="86,66,0,0"/>
+                    <Label x:Name="label_Copy1" Content="Documento" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,68,0,0"/>
+                    <TextBox x:Name="txtEstado" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="341,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <Label x:Name="label_Copy2" Content="Estado" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,77,0,0"/>
+
+                </Grid>
+            </materialDesign:Card>
+        </Expander>
+        <Grid HorizontalAlignment="Left" Background="Black" Height="629" Margin="-169,0,0,0" VerticalAlignment="Top" Width="169" Grid.RowSpan="2"/>
+    </Grid>
+</Window>

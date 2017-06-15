@@ -1,0 +1,33 @@
+﻿<Page x:Class="Cliente_WPF.EE.regEmpleado"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Cliente_WPF.EE"
+      mc:Ignorable="d" 
+      Height="500" Width="1000"
+      Title="regEmpleado">
+
+    <Grid>
+        <Button HorizontalAlignment="Left" Click="Button_Click" VerticalAlignment="Top" Width="62" Margin="126,27,0,0" Height="60" FontSize="48">
+            <TextBlock Text="+" VerticalAlignment="Center" FontSize="48"/>
+        </Button>
+        <Label Content="Agregar nuevo Empleado" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="62,87,0,0" FontSize="16"/>
+        <ComboBox HorizontalAlignment="Left" Margin="28,118,0,0" VerticalAlignment="Top" Width="120" Height="33"/>
+        <TextBox HorizontalAlignment="Left" Height="33" Margin="177,118,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="639"/>
+        <DataGrid MouseDoubleClick="dtgEmpleado_MouseDoubleClick" AutoGenerateColumns="False" x:Name="dtgEmpleado" HorizontalAlignment="Left" Height="318" Margin="28,172,0,0" VerticalAlignment="Top" Width="942">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID Empleado" Binding="{Binding Id_empleado}"/>
+                <DataGridTextColumn Header="Nombre" Width="200" Binding="{Binding Nombre}"/>
+                <DataGridTextColumn Header="Direccion" Binding="{Binding Apellidos}"/>
+                <DataGridTextColumn Header="DUI" Binding="{Binding Dui}"/>
+                <DataGridTextColumn Header="Id Cago" Visibility="Hidden" Binding="{Binding Id_Cargo}"/>
+                <DataGridTextColumn Header="Cargo" Binding="{Binding NombreCargo}"/>
+                <DataGridTextColumn Header="ID Usuario" Binding="{Binding Id_Usuario}"/>
+                <DataGridTextColumn Header="Sucursal" Binding="{Binding NombreSuc}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Page>
